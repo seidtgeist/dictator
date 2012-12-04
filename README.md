@@ -1,6 +1,11 @@
 # dictator
 
-Process management for development
+Process management for development.
+
+- Start up processes in order
+- Colorized output (stdout & stderr)
+- If child exits, terminate everything
+- If dictator exits, terminate everything
 
 ## usage
 
