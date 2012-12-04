@@ -18,5 +18,11 @@
   ],
   "author": "Stephan Seidt",
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "ansi-color": "~0.2.1",
+    "lodash": "~1.0.0-rc.1",
+    "through": "~2.1.0"
+  },
+  "bin": "bin/dictator.js"
 }
