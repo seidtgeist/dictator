@@ -6,6 +6,11 @@ Process management for development.
 - Colorized output (stdout & stderr)
 - If child exits, terminate everything
 - If dictator exits, terminate everything
+- Looks for dictator.json in current dir (or specify filename in first arg)
+
+## install
+
+    npm install -g dictator
 
 ## usage
 
@@ -26,6 +31,10 @@ Create a dictator.json in the root of your project
   }
 }
 ~~~
+
+Then run the dictator:
+
+    dictator [dictator.json]
 
 Will do the following:
 
