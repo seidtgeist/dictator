@@ -1,0 +1,10 @@
+{
+  "es5": true,
+  "globalstrict": true,
+  "node": true,
+  "predef": ["assert", "refute"],
+  "quotmark": "single",
+  "strict": true,
+  "trailing": true,
+  "unused": true
+}
