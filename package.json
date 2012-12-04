@@ -1,0 +1,22 @@
+{
+  "name": "dictator",
+  "version": "0.0.0",
+  "description": "Process management for development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/evilhackerdude/dictator.git"
+  },
+  "keywords": [
+    "process",
+    "management",
+    "supervise",
+    "supervision"
+  ],
+  "author": "Stephan Seidt",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
