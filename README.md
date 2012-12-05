@@ -21,13 +21,18 @@ Create a dictator.json in the root of your project
   "redis": {
     "cmd": "redis-server",
     "args": ["--port", 1337],
-    "deps": ["elasticsearch"],
-    "color": "red"
+    "color": "red",
   },
   "elasticsearch": {
     "cmd": "elasticsearch",
     "args": ["-f"],
-    "color": "green"
+    "color": "green",
+    "wait": 3000
+  },
+  "some-node-server": {
+    "cmd": "some-node-server",
+    "deps": ["elasticsearch", "redis"],
+    "color": "blue"
   }
 }
 ~~~
