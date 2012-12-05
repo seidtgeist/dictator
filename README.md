@@ -3,6 +3,7 @@
 Process management for development.
 
 - Start up processes in order
+- Configurable wait time to allow dependencies to start up properly
 - Colorized output (stdout & stderr)
 - If child exits, terminate everything
 - If dictator exits, terminate everything
