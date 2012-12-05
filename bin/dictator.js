@@ -14,6 +14,6 @@ var fs = require('fs');
 var filename = process.argv[2] || 'dictator.json';
 var procs = JSON.parse(fs.readFileSync(filename));
 
-dictator.runReady(procs);
+dictator.rule(procs);
 process.on('SIGINT', function() { dictator.terminate(procs); });
 process.on('exit', function() { dictator.terminate(procs); });
