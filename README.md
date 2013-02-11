@@ -34,6 +34,11 @@ Create a dictator.json in the root of your project
     "cmd": "some-node-server",
     "deps": ["elasticsearch", "redis"],
     "color": "blue"
+  },
+  "some-rails-app": {
+    "cwd": "rails-root",
+    "cmd": "rails",
+    "args": ["s"]
   }
 }
 ~~~
