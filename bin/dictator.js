@@ -7,6 +7,7 @@ process.logging = function() {
 };
 
 process.logStream = process.stdout;
+process.logStream.setMaxListeners(0);
 
 var dictator = require('..');
 var fs = require('fs');
