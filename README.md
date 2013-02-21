@@ -57,3 +57,11 @@ Will do the following:
 4. Start some-node-server, log its output in blue
 
 If any of the processes quit the others will receive a SIGKILL and dictator will exit.
+
+## pro tips
+
+- Set up a `config` directory next to your `dictator.json` and put all configuration in there
+- Set up a `state` directroy next to your `dictator.json` and configure your services
+  to put all their state (DBs, logs, etc) in there
+- For a nice reset of the environment, simply: `rm -rf state/*` before running the `dictator`.
+  Remove the current state and run the dictator. You get it? A coup. Ok, I'm stopping it.
