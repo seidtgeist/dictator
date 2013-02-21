@@ -38,16 +38,22 @@ Create a dictator.json in the root of your project
   "some-rails-app": {
     "cwd": "rails-root",
     "cmd": "rails",
-    "args": ["s"]
+    "args": ["s"],
+    "color": "yellow"
   }
 }
 ~~~
 
 Then run the dictator:
 
-    dictator [dictator.json]
+    dictator [/path/to/dictator.json]
 
 Will do the following:
 
-1. Start elasticsearch, log its output in green
-2. Start redis, log its output in red
+1. Start some-rails-app by changing the cwd to `rails-root` and runinng `rails s`
+   and logging its output in yellow
+2. Start elasticsearch, log its output in green, wait 3000 to let it initialize
+3. Start redis-server, log its output in red
+4. Start some-node-server, log its output in blue
+
+If any of the processes quit the others will receive a SIGKILL and dictator will exit.
