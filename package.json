@@ -21,8 +21,9 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "ansi-color": "0.2.1",
-    "lodash": "1.0.1",
-    "through": "2.1.0"
+    "lodash": "~1.0.1",
+    "through": "2.1.0",
+    "baconjs": "~0.1.7"
   },
   "bin": "bin/dictator.js"
 }

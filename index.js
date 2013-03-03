@@ -2,8 +2,10 @@
 
 var _ = require('lodash');
 var spawn = require('child_process').spawn;
+var EventEmitter = require('events').EventEmitter;
 var through = require('through');
 var wrapColor = require('ansi-color').set;
+var Bacon = require('baconjs');
 if (process.logging) var log = process.logging('dictator');
 if (process.logStream) var logStream = process.logStream;
 
@@ -13,6 +15,19 @@ function colorize(color) {
   return through(function(data) {
     this.emit('data', wrapColor(data, color));
   });
+}
+
+var mainstream = Bacon.bacon();
+
+var Process = function (mainstream, descriptor) {
+  this.mainstream = mainstream;
+  _.extend(this, EventEmitter, descriptor);
+};
+
+Process.prototype = {
+  run: function () {
+    this.mainstream.on
+  };
 }
 
 exports.rule = rule;
