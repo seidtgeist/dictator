@@ -9,9 +9,11 @@ if (process.logStream) var logStream = process.logStream;
 
 var DEFAULT_WAIT = 1000;
 
-function colorize(color) {
+function enhance(proc) {
+  var color = proc.color;
+  var prefix = '[' + proc.name + '] ';
   return through(function(data) {
-    this.emit('data', wrapColor(data, color));
+    this.emit('data', wrapColor(prefix + data, color));
   });
 }
 
@@ -47,8 +49,8 @@ function run(proc) {
   proc.startedAt = new Date();
   if (log) log('%s started', proc.name);
   if (logStream) {
-    child.stdout.pipe(colorize(proc.color)).pipe(logStream);
-    child.stderr.pipe(colorize(proc.color)).pipe(logStream);
+    child.stdout.pipe(enhance(proc)).pipe(logStream);
+    child.stderr.pipe(enhance(proc)).pipe(logStream);
   }
   child.on('exit', function() {
     if (log) log('%s terminated', proc.name);
