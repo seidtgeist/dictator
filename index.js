@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var spawn = require('child_process').spawn;
+var split = require('split');
 var through = require('through');
 var wrapColor = require('ansi-color').set;
 if (process.logging) var log = process.logging('dictator');
@@ -13,7 +14,7 @@ function enhance(proc) {
   var color = proc.color;
   var prefix = '[' + proc.name + '] ';
   return through(function(data) {
-    this.emit('data', wrapColor(prefix + data, color));
+    this.emit('data', wrapColor(prefix + data, color) + '\n');
   });
 }
 
@@ -49,8 +50,8 @@ function run(proc) {
   proc.startedAt = new Date();
   if (log) log('%s started', proc.name);
   if (logStream) {
-    child.stdout.pipe(enhance(proc)).pipe(logStream);
-    child.stderr.pipe(enhance(proc)).pipe(logStream);
+    child.stdout.pipe(split()).pipe(enhance(proc)).pipe(logStream);
+    child.stderr.pipe(split()).pipe(enhance(proc)).pipe(logStream);
   }
   child.on('exit', function() {
     if (log) log('%s terminated', proc.name);

@@ -22,7 +22,8 @@
   "dependencies": {
     "ansi-color": "0.2.1",
     "lodash": "1.0.1",
-    "through": "2.1.0"
+    "through": "2.1.0",
+    "split": "~0.2.10"
   },
   "bin": "bin/dictator.js"
 }
