@@ -21,9 +21,10 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "ansi-color": "0.2.1",
-    "lodash": "1.0.1",
     "through": "2.1.0",
-    "split": "~0.2.10"
+    "split": "~0.2.10",
+    "optimist": "~0.6.0",
+    "lodash": "~2.4.1"
   },
   "bin": "bin/dictator.js"
 }

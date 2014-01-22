@@ -19,7 +19,31 @@ function enhance(proc) {
 }
 
 exports.rule = rule;
-function rule(procs) {
+function rule(procs, options) {
+  console.log('options:', options);
+
+  if (!_.isEmpty(options.only) && !_.isEmpty(options.exclude)) {
+    throw new Error('Cannot combine only and exclude parameters');
+  }
+
+  if (!_.isEmpty(options.only)) {
+    procs = _.pick(procs, options.only);
+    procs = _.mapValues(procs, function(proc) {
+      proc.deps = _.intersection(proc.deps, options.only);
+      return proc;
+    });
+  }
+
+  if (!_.isEmpty(options.exclude)) {
+    procs = _.omit(procs, options.exclude);
+    procs = _.mapValues(procs, function(proc) {
+      proc.deps = _.without(proc.deps, options.exclude);
+      return proc;
+    });
+  }
+
+  console.log('result:', procs);
+
   setInterval(function() {
     runReady(procs);
   }, 100);

@@ -58,6 +58,14 @@ Will do the following:
 
 If any of the processes quit the others will receive a SIGKILL and dictator will exit.
 
+### exclude some services
+
+    dictator -e nope
+
+### run only some services
+
+    dictator -o yes -o indeed
+
 ## pro tips
 
 - Set up a `config` directory next to your `dictator.json` and put all configuration in there
