@@ -20,8 +20,6 @@ function enhance(proc) {
 
 exports.rule = rule;
 function rule(procs, options) {
-  console.log('options:', options);
-
   if (!_.isEmpty(options.only) && !_.isEmpty(options.exclude)) {
     throw new Error('Cannot combine only and exclude parameters');
   }
@@ -41,8 +39,6 @@ function rule(procs, options) {
       return proc;
     });
   }
-
-  console.log('result:', procs);
 
   setInterval(function() {
     runReady(procs);
