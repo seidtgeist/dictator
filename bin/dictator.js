@@ -24,7 +24,7 @@ process.logStream.setMaxListeners(0);
 var dictator = require('..');
 var fs = require('fs');
 
-var filename = argv._[1] || 'dictator.json';
+var filename = argv._[0] || 'dictator.json';
 var procs = JSON.parse(fs.readFileSync(filename));
 
 dictator.rule(procs, {
