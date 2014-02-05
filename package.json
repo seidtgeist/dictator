@@ -1,6 +1,6 @@
 {
   "name": "dictator",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Process management for development",
   "main": "index.js",
   "scripts": {
