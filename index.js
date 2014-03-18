@@ -55,6 +55,10 @@ function runReady(procs) {
     var dependencies = proc.deps || [];
     var readyDependencies = _.filter(dependencies, function(name) {
       var dep = procs[name];
+      if(!dep) {
+        throw new Error('Process '+name+' is needed for '+proc.name+' but it has not been started.');
+      }
+
       var wait = dep.wait || DEFAULT_WAIT;
       var runningInterval = new Date() - dep.startedAt;
       return runningInterval > wait;
