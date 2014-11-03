@@ -77,6 +77,10 @@ function run(proc) {
     child.stdout.pipe(split()).pipe(enhance(proc)).pipe(logStream);
     child.stderr.pipe(split()).pipe(enhance(proc)).pipe(logStream);
   }
+  child.on('error', function (e) {
+    console.error('Failed to spawn', proc.cmd, proc.args, 'in', proc.cwd);
+    throw e;
+  });
   child.on('exit', function() {
     if (log) log('%s terminated', proc.name);
     proc.exitedAt = new Date();
