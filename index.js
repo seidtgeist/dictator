@@ -70,7 +70,10 @@ function runReady(procs) {
 }
 
 function run(proc) {
-  var child = proc.child = spawn(proc.cmd, proc.args, {cwd: proc.cwd});
+  var child = proc.child = spawn(proc.cmd, proc.args, {
+    cwd: proc.cwd,
+    env: _.extend({}, process.env, proc.env)
+  });
   proc.startedAt = new Date();
   if (log) log('%s started', proc.name);
   if (logStream) {
