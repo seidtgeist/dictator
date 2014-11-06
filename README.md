@@ -40,6 +40,12 @@ Create a dictator.json in the root of your project
     "cmd": "rails",
     "args": ["s"],
     "color": "yellow"
+  },
+  "env-var-app": {
+    "cmd": "my-app",
+    "env": {
+      "SOME_VAR": "some-value"
+    }
   }
 }
 ~~~
